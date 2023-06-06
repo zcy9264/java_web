@@ -7,9 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import xiaohei.Dao.StudentDAO;
+import xiaohei.model.StudentModel;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.util.ArrayList;
 
 @WebServlet(name = "UserServlet", value = "/UserServlet")
 public class UserServlet extends HttpServlet {
@@ -38,12 +39,12 @@ public class UserServlet extends HttpServlet {
 
     }
 
+    @SuppressWarnings("rawtypes")
     protected void doQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StudentDAO studentDAO = new StudentDAO();
-        ResultSet rs = studentDAO.QueryStudent();
-        request.setAttribute("rs", rs);
-
+        ArrayList ArrayStudent = studentDAO.QueryStudent();
+        request.setAttribute("ArrayStudent", ArrayStudent);
         RequestDispatcher rd = request.getRequestDispatcher("student/Query/query.jsp");
         rd.forward(request, response);
     }
@@ -55,8 +56,14 @@ public class UserServlet extends HttpServlet {
         String age = request.getParameter("age");
         String jspScore = request.getParameter("jspScore");
 
+        StudentModel studentModel = new StudentModel();
+        studentModel.SetId(id);
+        studentModel.SetName(name);
+        studentModel.SetAge(age);
+        studentModel.SetJspScore(jspScore);
+
         StudentDAO studentDAO = new StudentDAO();
-        boolean flag = studentDAO.AddStudent(id, name, age, jspScore);
+        boolean flag = studentDAO.AddStudent(studentModel);
 
         if (flag) {
             response.sendRedirect("student/index.jsp");
@@ -72,7 +79,14 @@ public class UserServlet extends HttpServlet {
         String jspScore = request.getParameter("jspScore");
 
         StudentDAO studentDAO = new StudentDAO();
-        boolean flag = studentDAO.ChangeStudent(id, name, age, jspScore);
+        StudentModel studentModel = new StudentModel();
+
+        studentModel.SetId(id);
+        studentModel.SetName(name);
+        studentModel.SetAge(age);
+        studentModel.SetJspScore(jspScore);
+
+        boolean flag = studentDAO.ChangeStudent(studentModel);
         //Ìø×ª
         if (flag) {
             response.sendRedirect("student/index.jsp");
@@ -85,7 +99,11 @@ public class UserServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         StudentDAO studentDAO = new StudentDAO();
-        boolean flag = studentDAO.DeleteStudent(id);
+        StudentModel studentModel = new StudentModel();
+
+        studentModel.SetId(id);
+
+        boolean flag = studentDAO.DeleteStudent(studentModel);
         //Ìø×ª
         if (flag) {
             response.sendRedirect("student/index.jsp");

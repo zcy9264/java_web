@@ -1,4 +1,5 @@
-<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="xiaohei.model.StudentModel" %>
 <%--
   Created by IntelliJ IDEA.
   User: 12632
@@ -19,7 +20,7 @@
 <body id="body_1">
 
 <%
-    ResultSet rs = (ResultSet) request.getAttribute(("rs"));
+    ArrayList ArrayStudent = (ArrayList) request.getAttribute("ArrayStudent");
 %>
 <div id="div_1"></div>
 <h1 id="h_1">学生信息查询</h1>
@@ -37,39 +38,41 @@
             <th colspan="2">操作</th>
         </tr>
         <%
-            while (rs.next()) {
+            for (Object o : ArrayStudent) {
+                StudentModel student = (StudentModel) o;
         %>
         <tr class="tr_1">
             <td>
                 <label>
-                    <input type="checkbox" name="stuIds" value="<%=rs.getString("id")%>"/>
+                    <input type="checkbox" name="stuIds" value="<%=student.GetId()%>"/>
                 </label>
-                <%=rs.getString("id")%>
+                <%=student.GetId()%>
             </td>
 
             <td>
-                <%=rs.getString("id")%>
+                <%=student.GetId()%>
             </td>
 
             <td>
-                <%=rs.getString("name")%>
+                <%=student.GetName()%>
             </td>
 
             <td>
-                <%=rs.getString("age")%>
+                <%=student.GetAge()%>
             </td>
 
             <td>
-                <%=rs.getString("jspScore")%>
+                <%=student.GetJspScore()%>
             </td>
 
             <td>
                 <a class="all_a"
-                   href="<%=path%>/student/Changes/change.jsp?id=<%=rs.getString("id") %>&name=<%=rs.getString("name") %>&age=<%=rs.getString("age") %>&jspScore=<%=rs.getString("jspScore") %>">修改</a>
+                   href="<%=path%>/student/Changes/change.jsp?id=<%=student.GetId() %>&name=<%=student.GetName() %>&age=<%=student.GetAge() %>&jspScore=<%=student.GetJspScore() %>">修改</a>
             </td>
 
             <td>
-                <a class="all_a" href="<%=path%>/UserServlet?operate=doDelete&id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
+                <a class="all_a" href="<%=path%>/UserServlet?operate=doDelete&id=<%=student.GetId()%>"
+                   onclick="return ifDE()">删除</a>
             </td>
 
         </tr>
