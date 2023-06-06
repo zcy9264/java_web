@@ -7,28 +7,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import xiaohei.tools.DBManager;
 
 import java.io.IOException;
-import java.io.Serial;
 
-@WebServlet(name = "ChangeServlet", value = "/ChangeServlet")
-public class ChangeServlet extends HttpServlet {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    public ChangeServlet() {
-        super();
-        //TODO Auto-generated constructor stub
-    }
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
+@WebServlet(name = "DeleteServlet", value = "/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
-        String name = request.getParameter("name");
-        String age = request.getParameter("age");
-        String jspScore = request.getParameter("jspScore");
         //连数据库修改
-        String sql = "UPDATE student SET name = '"+name+"',age = '"+age+"', jspScore = '"+jspScore+"' where id = '"+id+"';";
+        String sql = "DELETE student where id = '"+id+"';";
         DBManager db = new DBManager();
         int count = db.executeUpdate(sql);
         //跳转

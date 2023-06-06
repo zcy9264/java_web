@@ -39,9 +39,9 @@ public class AddServlet extends HttpServlet {
         int count = db.executeUpdate(sql);
         //Ìø×ª
         if (count > 0) {
-            response.sendRedirect("student/Query/query.jsp");
+            response.sendRedirect("student/index.jsp");
         } else {
-            response.sendRedirect("student/Query/query.jsp");
+            response.sendRedirect("student/index.jsp");
         }
         db.releaseResource();
 

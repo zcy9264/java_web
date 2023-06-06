@@ -34,7 +34,7 @@ public class QueryServlet extends HttpServlet {
         //response.getWriter().append("Served at: ").append(request.getContextPath());
 
         DBManager db = new DBManager();
-        ResultSet rs= db.executeQuery("select * from student");
+        ResultSet rs= db.executeQuery("SELECT id,name,age,jspScore FROM student ORDER BY student.id;");
         request.setAttribute("rs", rs);
         RequestDispatcher rd = request.getRequestDispatcher("student/Query/query.jsp");
         rd.forward(request, response);

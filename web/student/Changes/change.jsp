@@ -26,7 +26,7 @@
 
 <div style="background-color:#284ae0; height:10px;margin-bottom:20px;"></div>
 
-<form action="../../ChangeServlet" method="get">
+<form action="<%= path %>/ChangeServlet" method="get">
     <table id="tb_2">
         <tr>
             <th>学号：</th>
@@ -64,7 +64,7 @@
         <tr>
             <td colspan="2"><input type="submit" value="修改"/><input type="reset" value="重置"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="all_a" href="../Query/query.jsp">返回查询页面</a></td>
+                <a class="all_a" href="<%=path%>/QueryServlet">返回查询页面</a></td>
         </tr>
     </table>
 </form>

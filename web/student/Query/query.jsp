@@ -1,4 +1,3 @@
-<%@ page import="xiaohei.tools.DBManager" %>
 <%@ page import="java.sql.ResultSet" %>
 <%--
   Created by IntelliJ IDEA.
@@ -20,14 +19,12 @@
 <body id="body_1">
 
 <%
-    DBManager db = new DBManager();
-    String sql = "select * from student";
-    ResultSet rs = db.executeQuery(sql);
+    ResultSet rs = (ResultSet) request.getAttribute(("rs"));
 %>
 <div id="div_1"></div>
 <h1 id="h_1">学生信息查询</h1>
 <div id="div_1"></div>
-<form action="<%=path%>/student/Changes/deleteAllHandle.jsp" method="get">
+<form action="<%=path%>/DeleteAllServlet" method="get">
     <table class="tb_1">
         <tr>
             <th>
@@ -72,14 +69,12 @@
             </td>
 
             <td>
-                <a class="all_a" href="<%=path%>/student/Changes/deleteHandle.jsp?id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
+                <a class="all_a" href="<%=path%>/DeleteServlet?id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
             </td>
 
         </tr>
 
         <%}%>
-        <%db.releaseResource(); %>
-
         <tr>
             <td colspan="7">
                 <input id="delete" type="submit" onclick="return ifDE()" value="批量删除"/>&nbsp;&nbsp;&nbsp;
