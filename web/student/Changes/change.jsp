@@ -26,7 +26,7 @@
 
 <div style="background-color:#284ae0; height:10px;margin-bottom:20px;"></div>
 
-<form action="<%= path %>/ChangeServlet" method="get">
+<form action="<%= path %>/UserServlet" method="get">
     <table id="tb_2">
         <tr>
             <th>学号：</th>
