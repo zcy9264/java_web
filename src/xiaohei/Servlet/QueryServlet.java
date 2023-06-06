@@ -1,16 +1,20 @@
 package xiaohei.Servlet;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import xiaohei.tools.DBManager;
 
 import java.io.IOException;
 import java.io.Serial;
 import java.sql.ResultSet;
 
-@WebServlet(name = "queryServlet", value = "/queryServlet")
+@WebServlet(name = "QueryServlet", value = "/QueryServlet")
 public class QueryServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -30,7 +34,7 @@ public class QueryServlet extends HttpServlet {
         DBManager db = new DBManager();
         ResultSet rs= db.executeQuery("select * from student");
         request.setAttribute("rs", rs);
-        RequestDispatcher rd = request.getRequestDispatcher("htmlquery-2.0/query.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("student/Query/query.jsp");
         rd.forward(request, response);
     }
 

@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="jsp-api" />
           <element id="file-copy" path="$PROJECT_DIR$/../../Users/12632/download/mssql-jdbc-12.2.0.jre11.jar" />
+          <element id="library" level="project" name="mssql-jdbc-12.2.0.jre11" />
         </element>
       </element>
     </root>
