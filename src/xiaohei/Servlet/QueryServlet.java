@@ -31,6 +31,8 @@ public class QueryServlet extends HttpServlet {
      */
     protected void  doGet(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
         // TODO Auto-generated method stub
+        //response.getWriter().append("Served at: ").append(request.getContextPath());
+
         DBManager db = new DBManager();
         ResultSet rs= db.executeQuery("select * from student");
         request.setAttribute("rs", rs);
