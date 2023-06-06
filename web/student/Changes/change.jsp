@@ -62,7 +62,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="修改"/><input type="reset" value="重置"/>
+            <td colspan="2">
+                <input type="hidden" name="operate" value="doChange"/>
+                <input type="submit" value="修改"/>
+                <input type="reset" value="重置"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a class="all_a" href="<%=path%>/QueryServlet">返回查询页面</a></td>
         </tr>

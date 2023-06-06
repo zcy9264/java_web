@@ -11,6 +11,6 @@
     <title>$Title$</title>
 </head>
 <body>
-<%response.sendRedirect("../QueryServlet"); %>
+<%response.sendRedirect("../UserServlet?operate=doQuery"); %>
 </body>
 </html>

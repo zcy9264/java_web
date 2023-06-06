@@ -24,7 +24,7 @@
 
 <div style="background-color:#284ae0; height:10px; margin-bottom:20px"></div>
 
-<form action="<%= path %>/AddServlet" method="get">
+<form action="<%= path %>/UserServlet" method="get">
     <table id="tb_2">
         <tr>
             <th>学号：</th>
@@ -60,6 +60,7 @@
         </tr>
         <tr>
             <td colspan="2">
+                <input type="hidden" name="operate"  value="doAdd"/>
                 <input type="submit" value="添加"/>
                 <input type="reset" value="重置"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=path%>/QueryServlet">返回查询页面</a>

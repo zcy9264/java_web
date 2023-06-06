@@ -24,7 +24,7 @@
 <div id="div_1"></div>
 <h1 id="h_1">学生信息查询</h1>
 <div id="div_1"></div>
-<form action="<%=path%>/DeleteAllServlet" method="get">
+<form action="<%=path%>/UserServlet" method="get">
     <table class="tb_1">
         <tr>
             <th>
@@ -69,7 +69,7 @@
             </td>
 
             <td>
-                <a class="all_a" href="<%=path%>/DeleteServlet?id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
+                <a class="all_a" href="<%=path%>/UserServlet?operate=doDelete&id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
             </td>
 
         </tr>
@@ -77,6 +77,7 @@
         <%}%>
         <tr>
             <td colspan="7">
+                <input type="hidden" name="operate"  value="doAllDelete"/>
                 <input id="delete" type="submit" onclick="return ifDE()" value="批量删除"/>&nbsp;&nbsp;&nbsp;
                 <a class="all_a" href="<%=path%>/student/Changes/addFrom.jsp">添加学生成绩记录</a>
             </td>
