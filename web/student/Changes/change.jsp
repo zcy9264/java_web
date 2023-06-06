@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>修改</title>
+    <%String path = request.getContextPath(); %>
     <style>
-        @import url(../css/style.css);
+        @import url(<%=path%>/student/css/style.css);
     </style>
 </head>
 

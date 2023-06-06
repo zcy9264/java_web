@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <%String path = request.getContextPath(); %>
     <title>删除</title>
 </head>
 <body>
@@ -18,9 +19,9 @@
     int count = db.executeUpdate(sql);
 
     if (count > 0) {
-        response.sendRedirect("../Query/query.jsp");
+        response.sendRedirect(path+"/student/Query/query.jsp");
     } else {
-        response.sendRedirect("../Query/query.jsp");
+        response.sendRedirect(path+"/student/Query/query.jsp");
     }
     db.releaseResource();
 %>

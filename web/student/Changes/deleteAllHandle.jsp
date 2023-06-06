@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <%String path = request.getContextPath(); %>
     <title>批量删除操作</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
         db.executeUpdate(sql);
         db.releaseResource();
     }
-    response.sendRedirect("../Query/query.jsp");
+    response.sendRedirect(path+"/student/Query/query.jsp");
 %>
 </body>
 </html>

@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>添加</title>
+    <%String path = request.getContextPath(); %>
     <style>
-        @import url(../css/style.css);
+        @import url(<%=path%>/student/css/style.css);
     </style>
 
 </head>
@@ -23,7 +24,7 @@
 
 <div style="background-color:#284ae0; height:10px; margin-bottom:20px"></div>
 
-<form action="../../AddServlet" method="get">
+<form action="<%= path %>/AddServlet" method="get">
     <table id="tb_2">
         <tr>
             <th>学号：</th>

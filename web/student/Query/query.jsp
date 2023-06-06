@@ -11,8 +11,9 @@
 <html>
 <head>
     <title>学生管理系统</title>
+    <%String path = request.getContextPath(); %>
     <style>
-        @import url(../css/style.css);
+        @import url(<%=path%>/student/css/style.css);
     </style>
 </head>
 
@@ -26,7 +27,7 @@
 <div id="div_1"></div>
 <h1 id="h_1">学生信息查询</h1>
 <div id="div_1"></div>
-<form action="../Changes/deleteAllHandle.jsp" method="get">
+<form action="<%=path%>/student/Changes/deleteAllHandle.jsp" method="get">
     <table class="tb_1">
         <tr>
             <th>
@@ -67,11 +68,11 @@
 
             <td>
                 <a class="all_a"
-                   href="../Changes/change.jsp?id=<%=rs.getString("id") %>&name=<%=rs.getString("name") %>&age=<%=rs.getString("age") %>&jspScore=<%=rs.getString("jspScore") %>">修改</a>
+                   href="<%=path%>/student/Changes/change.jsp?id=<%=rs.getString("id") %>&name=<%=rs.getString("name") %>&age=<%=rs.getString("age") %>&jspScore=<%=rs.getString("jspScore") %>">修改</a>
             </td>
 
             <td>
-                <a class="all_a" href="../Changes/deleteHandle.jsp?id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
+                <a class="all_a" href="<%=path%>/student/Changes/deleteHandle.jsp?id=<%=rs.getString("id") %>" onclick="return ifDE()">删除</a>
             </td>
 
         </tr>
@@ -82,7 +83,7 @@
         <tr>
             <td colspan="7">
                 <input id="delete" type="submit" onclick="return ifDE()" value="批量删除"/>&nbsp;&nbsp;&nbsp;
-                <a class="all_a" href="../Changes/addFrom.jsp">添加学生成绩记录</a>
+                <a class="all_a" href="<%=path%>/student/Changes/addFrom.jsp">添加学生成绩记录</a>
             </td>
         </tr>
 
