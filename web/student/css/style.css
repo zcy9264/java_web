@@ -41,6 +41,10 @@
     height: 10px;
 }
 
+.div_2 {
+    box-sizing: border-box;
+}
+
 .tb_1 {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
@@ -91,3 +95,4 @@
 
 
 /* addForm½áÊø */
+
